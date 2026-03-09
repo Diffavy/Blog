@@ -2,14 +2,15 @@
 
 # This file is used to display the list of posts on the homepage. 
 # It extends the base.html template and fills the content block with 
-#a loop that iterates over the posts and displays their title, published date, and text.
+#a loop that iterates over the posts and displays their title, published date, and text.\
+
 {% block content%}
     {% for post in posts %}
         <article class="post">
             <time class="date">
                 {{ post.published_date }}
             </time>
-            <h2><a href="">{{ post.title }}</a></h2>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
     {% endfor %}
